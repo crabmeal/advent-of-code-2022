@@ -39,9 +39,8 @@ with open("input.txt", "r") as file:
             # Cast string values to int
             crates = int(crates)
             # Move the crates
-            for _ in range(crates):
-                ship[new] += ship[old][-1]
-                del ship[old][-1]
+            ship[new] += ship[old][-crates:]
+            del ship[old][-crates:]
             # Reset the variable values after each full line loop
             crates, old, new = '', '', ''
 
